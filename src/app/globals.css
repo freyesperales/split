@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #ffffff;
+  --color-fg: #0a0a0a;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-card: #fafafa;
+  --color-primary: #ea580c;
+  --color-primary-hover: #c2410c;
+  --color-primary-fg: #ffffff;
+  --color-positive: #16a34a;
+  --color-negative: #dc2626;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme inline {
+    --color-bg: #0a0a0a;
+    --color-fg: #fafafa;
+    --color-muted: #9ca3af;
+    --color-border: #262626;
+    --color-card: #171717;
+    --color-primary: #f97316;
+    --color-primary-hover: #ea580c;
+  }
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+button, [role="button"] {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+input, select, textarea {
+  min-height: 44px;
+  font-size: 16px; /* prevent iOS zoom on focus */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-up { animation: slideUp 200ms ease-out; }
